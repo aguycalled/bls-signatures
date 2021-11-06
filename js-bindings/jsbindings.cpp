@@ -63,6 +63,7 @@ EMSCRIPTEN_BINDINGS(blsjs) {
         .class_property("SIZE", &G1ElementWrapper::SIZE)
         .constructor<>()
         .class_function("fromBytes", &G1ElementWrapper::FromBytes) // Not removing this for compatibility
+        .class_function("from_message", &G1ElementWrapper::FromMessage)
         .class_function("from_bytes", &G1ElementWrapper::FromBytes)
         .class_function("generator", &G2ElementWrapper::Generator)
         .function("serialize", &G1ElementWrapper::Serialize)

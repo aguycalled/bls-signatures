@@ -36,6 +36,15 @@ G1ElementWrapper G1ElementWrapper::FromBytes(val buffer) {
     return G1ElementWrapper(pk);
 }
 
+G1ElementWrapper G1ElementWrapper::FromMessage(val buffer) {
+    std::vector <uint8_t> bytes = helpers::toVector(buffer);
+    const bls::Bytes bytesView(bytes);
+    uint8_t dest[1];
+    dest[0] = 0x0;
+    G1Element pk = G1Element::FromMessage(bytesView, dest, 1);
+    return G1ElementWrapper(pk);
+}
+
 val G1ElementWrapper::Serialize() const {
     return helpers::toUint8Array(wrapped.Serialize());
 }

@@ -32,6 +32,8 @@ public:
 
     static G1ElementWrapper FromBytes(val buffer);
 
+    static G1ElementWrapper FromMessage(val buffer);
+
     static G1ElementWrapper Generator();
 
     val Serialize() const;
